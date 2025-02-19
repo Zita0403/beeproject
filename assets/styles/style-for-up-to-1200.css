@@ -1,0 +1,95 @@
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*Scrollbar*/
+@import url("./scrollbar.css");
+@media only screen and (min-width: 1200px) {
+    body {
+        display: grid;
+        grid: 
+            "first" 35vw
+            "second" 70px
+            "third" auto
+            "forth" 15vw
+            / 1fr
+        ;
+    }
+
+    header {
+        grid-area: first;
+        font-size: 3rem;  
+    }
+    
+    /* Navigation */
+
+    nav {
+        grid-area: second;
+    }
+
+    /* Main */
+    main {
+        grid-area: third;
+        display: grid;
+        grid: 
+            "fst-sect" auto
+            "scnd-sect" auto
+            "third-sect" auto
+            / 100%
+        ;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    /* Main/First-section */   
+
+    .first-section {
+        grid-area: fst-sect;
+    }
+
+    .first-section .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    /*Kártyák*/
+
+    .flex-item {
+        width: 15em;
+        height: 21em;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Main/Second-section */
+    .second-section {
+        grid-area: scnd-sect;
+    }
+
+    /* Main/Third-section */
+    .third-section {
+        grid-area: third-sect;
+    }
+
+    /* Footer */
+
+    footer {
+        grid-area: forth;
+    }
+
+    footer > h2 {
+        padding-left: 30px;
+    }
+}
+
+
+
+
+
+
+
+

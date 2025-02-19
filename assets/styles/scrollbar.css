@@ -1,0 +1,25 @@
+.text-container {
+    overflow-y: auto; 
+    padding: 10px;
+    max-height: 20rem;
+    line-height: 1.5;
+    text-align: justify;
+    scrollbar-width: thin;
+    scrollbar-color:rgba(245, 222, 179, 0.64) #c7a86b; 
+}
+
+.text-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #452E2B;
+}
+
+.text-container::-webkit-scrollbar-track {
+    background: #c7a86b;
+    border-radius: 20px;
+}
+
+.text-container::-webkit-scrollbar-thumb {
+    background-color: #F7C42C;
+    border-radius: 10px;
+    border: 2px solid #c7a86b;
+}

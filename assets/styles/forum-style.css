@@ -1,0 +1,62 @@
+body {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    background-color: #FCE9B2;
+    color: #452E2B;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 5vw;
+}
+
+header a {
+    text-decoration: none;
+    color: #FCE9B2;
+    background-color: #452E2B;
+    padding: 5px;
+    border-radius: 8px;
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+header a:hover {
+    color: #F7C42C;
+}
+
+div h2 {
+    font-size: 1.5em;
+}
+
+div a {
+    text-decoration: none;
+    color: #452E2B;
+    font-style: italic;
+}
+
+
+
+main {
+    height: 40vw;
+    display: grid;
+    grid: 
+        "first-form" "second-form" 1fr
+        / 2fr         
+    ;
+}
+
+.first-form-container {
+    grid-area: first-form;
+}
+
+.second-form-container {
+    grid-area: second-form;
+}
+
+div {
+    height: 100%;
+    padding: 5px 10px;
+}
