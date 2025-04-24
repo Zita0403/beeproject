@@ -1,4 +1,15 @@
 /* Extra small devices (phones, 600px and down) */
+/* Globális változók */
+:root {
+    --primary-color: #EADDCA;
+    --secondary-color: #483C32;
+    --background-color: #EADDCA;
+    --secondary-background-color: #7b6959;
+    --text-color: #452E2B;
+    --secondary-text-color: #EADDCA;
+    --hover-text-color: #967969;
+}
+
 /*Scrollbar*/
 @import url("./scrollbar.css");
 * {
@@ -11,14 +22,14 @@ body {
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #FCE9B2;
-    color: #452E2B;
+    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: grid;
     grid: 
         "first" 30vw
-        "second" 42px
-        "third" auto
-        "forth" 15vw
+        "second" auto
+        "third" 15vw
         / 1fr
     ;
 }
@@ -27,25 +38,31 @@ body {
 
 header {
     grid-area: first;
-    background-color: #FCE9B2;
-    background-image: url(../images/beehive-with-bees-buzzing-around-field-with-chamomiles.jpg);
+    background-color: var(--background-color);
+    background-image: url(../images/pexels-sarazhizmailov-13086550.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 1rem;
     font-family: "Dekko", cursive;
     font-weight: 400;
     font-style: normal;
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent);
+    /* border-bottom-left-radius: 50% 200px;
+    border-bottom-right-radius: 50% 200px; */
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%); */
+    display: flex;
+    flex-direction: column;
 }
 
-header > h1,p {
+.title > h1,p {
     padding-left: 20px;
 }
 
 /* Navigation általános beállítások */
 nav {
-    grid-area: second;
-    background-color: #f7c42caf;
-    position: sticky;
+    background-color:transparent;
+    position: static;
     z-index: 100;
     top: 0;
     padding: 0;
@@ -56,17 +73,6 @@ nav {
     width: 100%;
 }
 
-nav li {
-    list-style: none;
-}
-
-nav a {
-    text-decoration: none;
-    color: #452E2B;
-    display: block;
-    padding: 6px;
-    font-size: 16px;
-}
 /* Normal menu in mobile view */
 .navbar {
     display: none;
@@ -79,7 +85,7 @@ nav a {
 }
 
 .dropdown-menu {
-    background-color:#452e2b4f;
+    background-color: transparent;
     backdrop-filter: blur(15px);
     width: 100%;
     height: 0;
@@ -89,8 +95,8 @@ nav a {
     overflow: hidden;
     list-style: none;
     padding: 0;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px; */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
@@ -108,7 +114,7 @@ nav a {
     background: none;
     border: none;
     cursor: pointer;
-    color: #452E2B;
+    color: var(--text-color);
 }
 
 .dropdown-menu li {
@@ -119,12 +125,12 @@ nav a {
 
 .dropdown-menu li a {
     text-decoration: none;
-    color: #452E2B;
+    color: var(--text-color);
     display: block;
 }
 
-.dropdown-menu > li > a:hover  {
-    color: #FCE9B2;
+.dropdown-menu > li:hover > a  {
+    color: var(--hover-text-color);
 }
 
 .dropdown-sub-menu {
@@ -132,13 +138,13 @@ nav a {
     position: absolute;
     top: 0;
     left: 40%; /* Az almenü jobbra nyílik */
-    background-color:#452e2b4f;
-    backdrop-filter: blur(15px);
+    /* background-color:#cdb59a;
+    backdrop-filter: blur(15px); */
     list-style: none;
     padding: 0;
     min-width: 200px;
     z-index: 99;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .dropdown-menu li:hover > .dropdown-sub-menu {
@@ -149,10 +155,14 @@ nav a {
     display: block;
 }
 
+.dropdown-sub-menu > li:hover > a {
+    color: var(--hover-text-color);
+}
+
 /* Main */
 main {
-    background-color: #FCE9B2;
-    grid-area: third;
+    background-color: var(--background-color);
+    grid-area: second;
     display: grid;
     grid: 
         "fst-sect" auto
@@ -163,12 +173,13 @@ main {
 }
 
 h2 {
-    color: #452E2B;
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 600;
     font-style: normal;
+    align-self: flex-start;
     padding-left: 30px;
     padding-top: 30px;
+    padding-bottom: 30px;
     font-size: 20px;
 }
 
@@ -176,17 +187,18 @@ h2 {
 
 .first-section {
     grid-area: fst-sect;
-    background-color: #FCE9B2;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 20px;
+    padding-bottom: 50px;
     margin-bottom: 20px;
 }
 
 .first-section h2 {
-    align-self: flex-start;
+    color: var(--text-color);
 }
 
 .first-section .flex-container {
@@ -196,18 +208,26 @@ h2 {
     gap: 20px;
 }
 
+.flex-container p {
+    line-height: 1.5;
+    text-indent: 20px;
+}
+
 /*Kártyák*/
 
 .flex-item {
     width: 15em;
     height: 20em;
-    background-color: #c7a86b;
+    background-color: var(--background-color);
     box-shadow: 10px 10px 20px 0px #452e2b52;
     border-radius: 0 40px 0px 40px;
     display: grid;
     grid-template-rows: 1fr 1fr;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+}
+
+.flex-item:hover {
+    cursor: pointer;
 }
 
 .image-container {
@@ -234,43 +254,49 @@ h2 {
 
 .image-container > h3 {
     background-color:rgba(245, 222, 179, 0.64);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
     text-align: center;
 }
 
 /* Main/Second-section */
 .second-section {
     grid-area: scnd-sect;
-    background-color: #F7C42C;
-    padding-bottom: 20px;
+    background-color: var(--secondary-background-color);
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--secondary-text-color);
 }
 
 .second-section h2 {
-    align-self: flex-start;
+    color: var(--secondary-text-color);
 }
 
 .second-section .text-container2 {
     display: flex;
     flex-direction: column;
     width: auto;
-    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .second-section p {
     text-align: justify;
     justify-self: center;
+    line-height: 1.5;
+    text-indent: 50px;
 }
 
 .slideshow-container {
     position: relative;
-    max-width: 100%;
+    width: auto;
+    max-width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    padding: 20px 0; 
 }
 
 .slide {
@@ -279,10 +305,13 @@ h2 {
 }
 
 .slide img {
-    width: 80%;
+    position: relative;
+    top: 0;
+    width: 100%;
     max-width: 700px; 
     height: auto;
-    border-radius: 10px; 
+    max-height: 400px;
+    border-radius: 5px; 
     box-shadow: 10px 10px 20px 0px #452e2b52;
 }
 
@@ -292,19 +321,31 @@ h2 {
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
+    height: 100%;
+    max-height: 700px;
+    width: 60px;
+    align-content: center;
+    justify-content: center;
     font-weight: bold;
-    padding: 10px;
-    color: white;
-    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    border-radius: 5px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { 
+    left: 0px; 
+    border-radius: 5px 0 0 5px;
+}
+
+.next { 
+    right: 0px;
+    border-radius: 0 5px 5px 0; 
+}
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.219);
+    color: var(--hover-text-color);
 }
 
 /* Animáció */
@@ -320,9 +361,64 @@ h2 {
 /* Main/Third-section */
 .third-section {
     grid-area: third-sect;
-    background-color: #FCE9B2;
+    background-color: var(--background-color);
+    padding-bottom: 50px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%); */
 }
+
+.third-section h2 {
+    color: var(--text-color);
+}
+
+/* Hexagon */
+
+.hexagon {
+    --s: 130px; /* control the size */
+    --g: 10px;  /* control the gap */
+    display: grid;
+    margin: calc(var(--s) + var(--g));
+}
+  
+.hexagon > a {
+    display: block;
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 0.866;
+    object-fit: cover;
+    clip-path: polygon(0% 25%,0% 75%,50% 100%,100% 75%,100% 25%,50% 0);
+    transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .2s linear;
+}
+.hexagon > a:hover {
+    filter: grayscale(0);
+    z-index: 1;
+    --_t: 1.2;
+}
+
+.hexagon > a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hexagon > a:nth-child(1) {--_x: calc(-100% - var(--g))}
+.hexagon > a:nth-child(7) {--_x: calc( 100% + var(--g))}
+.hexagon > a:nth-child(3),
+.hexagon > a:nth-child(5) {--_y: calc(-75% - .87*var(--g))}
+.hexagon > a:nth-child(4),
+.hexagon > a:nth-child(6) {--_y: calc( 75% + .87*var(--g))}
+.hexagon > a:nth-child(3),
+.hexagon > a:nth-child(4) {--_x: calc(-50% - .5*var(--g))}
+.hexagon > a:nth-child(5), 
+.hexagon > a:nth-child(6) {--_x: calc( 50% + .5*var(--g))}
+
+/* Lap tetejére görgetés */
 
 #scrollToTopBtn {
     position: fixed;
@@ -350,10 +446,11 @@ h2 {
 /* Footer */
 
 footer {
-    grid-area: forth;
-    background-color: #F7C42C;
+    grid-area: third;
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-text-color);
 }
 
 footer > h2 {
-    padding-left: 20px;
+    color: var(--secondary-text-color);
 }

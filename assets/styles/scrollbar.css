@@ -5,7 +5,7 @@
     line-height: 1.5;
     text-align: justify;
     scrollbar-width: thin;
-    scrollbar-color:rgba(245, 222, 179, 0.64) #c7a86b; 
+    scrollbar-color:rgba(92, 85, 72, 0.474) var(--background-color); 
 }
 
 .text-container::-webkit-scrollbar {
@@ -14,12 +14,12 @@
 }
 
 .text-container::-webkit-scrollbar-track {
-    background: #c7a86b;
+    background: var(--hover-text-color);
     border-radius: 20px;
 }
 
 .text-container::-webkit-scrollbar-thumb {
     background-color: #F7C42C;
     border-radius: 10px;
-    border: 2px solid #c7a86b;
+    border: 2px solid var(--hover-text-color);
 }

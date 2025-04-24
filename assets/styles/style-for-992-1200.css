@@ -6,12 +6,13 @@
         display: grid;
         grid: 
             "first" 35vw
-            "second" 60px
-            "third" auto
-            "forth" 15vw
+            "second" auto
+            "third" 15vw 
             / 1fr
         ;
     }
+
+    /* Header */
 
     header {
         grid-area: first;
@@ -29,12 +30,14 @@
     }
 
     nav {
-        grid-area: second;
         display: flex;
+        flex-direction: row;
+        justify-content: end;
     }
 
     nav a {
-        font-size: 2rem;
+        font-size: 20px;
+        padding: 20px;
     }
 
     .navbar {
@@ -55,43 +58,60 @@
 
     .main-menu li a {
         text-decoration: none;
-        color: #452E2B;
-        font-size: 18px;
+        color: var(--text-color);
+        font-size: 20px;
         padding: 10px;
         display: block;
     }
 
-    .main-menu > li:hover > .sub-menu {
+    .main-menu > li:hover > a {
+        color: var(--hover-text-color);
+    }
+
+    .main-menu li:focus-within > .sub-menu,
+    .main-menu li:hover > .sub-menu {
+        display: initial;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-color);
         display: block;
+        padding: 20px;
+        font-size: 20px;
     }
 
     .sub-menu {
         display: none;
         position: absolute;
-        top: 100%;
+        z-index: 1000;
+        top: 51px;
         left: 0;
-        background-color: #f7c42caf;
+        background-color: var(--background-color);
+        border-radius: 14px;
+        box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.2);
         list-style: none;
         padding: 0;
         min-width: 200px;
     }
 
     .sub-menu > li {
+        width: 100%;
         padding: 10px;
-        /* display: flex;
-        margin: 20px;
-        width: auto;
-        height: auto; */
     }
 
     .sub-menu a {
         text-decoration: none;
-        color: #452E2B;
+        color: var(--text-color);
+    }
+
+    .sub-menu >li:hover > a {
+        color: var(--hover-text-color);
     }
 
     /* Main */
     main {
-        grid-area: third;
+        grid-area: second;
         display: grid;
         grid: 
             "fst-sect" auto
@@ -102,7 +122,7 @@
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     /* Main/First-section */   
@@ -111,11 +131,20 @@
         grid-area: fst-sect;
     }
 
+    .first-section .flex-container {
+        gap: 40px;
+    }
+
     /*Kártyák*/
 
     .flex-item {
         width: 25em;
         height: 35em;
+    }
+
+    .flex-item:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease-in-out;
     }
 
     /* Main/Second-section */
@@ -132,11 +161,6 @@
     /* Footer */
 
     footer {
-        grid-area: forth;
+        grid-area: third;
     }
-
-    footer > h2 {
-        padding-left: 26px;
-    }
-
 }
